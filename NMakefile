@@ -17,7 +17,7 @@ LOBJS=$(SLIM_LIB) $(ComWin32_SRC)\*.obj $(FIXTURES_SRC)\*.obj
 
 WS2_32="C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib\WS2_32.Lib"
 
-all: TheFixtures CSlim ComWin32 CSlim_lib SlimExecutable
+all: TheFixtures CSlim ComWin32 ExecutorC CSlim_lib SlimExecutable
 
 CSlim:
 	cd $(CSLIM_SRC)
@@ -28,6 +28,10 @@ ComWin32:
 	cd $(ComWin32_SRC)
 	cl $(CFLAGS) *.c
 	cd $(BASE_DIR)
+
+ExecutorC:
+	cd $(BASE_DIR)\src\ExecutorC
+	cl $(CFLAGS) /I$(BASE_DIR)\include\ExecutorC *.c
 
 CSlim_lib:
 	cd $(BASE_DIR)
